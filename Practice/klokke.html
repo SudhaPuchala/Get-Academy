@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stoppeklokke</title>
+    <style>
+        .wrapper{
+            background-color: blueviolet;
+            height: 220px;
+            width:220px;
+            border-radius: 50%;
+            padding:20px;
+        }
+        .clockbutton{
+            margin-top: 20px;
+            margin-left: 15px;
+            border-radius: 50%;
+            height:55px;
+            width:50px;
+        }
+        .clockDisplay{
+            height:20px;
+            width:40px;
+            border:1px solid black;
+            margin-left: 50px;
+            font-size: x-small;
+
+        }
+    </style>
+
+</head>
+<body>
+    <div class="wrapper">
+        <button class="clockbutton" onclick="starttimer()">Start Timer!</button>
+        <button class="clockbutton" onclick="pausetimer()">pause</button>
+        <button class="clockbutton" onclick="stopAll()">Stopp &fjern</button><br>
+        <div id="app" class="clockDisplay"></div> Rundetider:<div id="lastround" class="roundList"></div> <br>
+    </div>
+    <script>
+        const app= document.grtElementById('app');
+        const rounTime = document.grtElementById('lastRound');
+        let seconds = 0;
+        var timer;
+
+        function starttimer(){
+            setInterval(countseconds,1000);
+        }
+        function countseconds(){
+            app.innerHTML= seconds;
+            seconds++;
+        }
+
+        function pausetimer(){
+            roudTime.innerHTML += '<li>${seconds-1} sekunder</li>';
+            clearinterval(timer);
+            seconds = 0;
+        }
+
+        function stopAll(){
+            location.reload()
+        }
+    
+    </script>
+        
+    
+</body>
+</html>
